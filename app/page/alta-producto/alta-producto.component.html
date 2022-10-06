@@ -1,0 +1,104 @@
+<style>
+    .bd-placeholder-img {
+        font-size: 1.125rem;
+        text-anchor: middle;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        user-select: none;
+
+    }
+
+    @media (min-width: 768px) {
+        .bd-placeholder-img-lg {
+            font-size: 3.5rem;
+        }
+    }
+</style>
+
+<!-- Custom styles for this template -->
+
+<body class="bg-light">
+
+    <div class="container">
+        <main>
+            <header class="pb-3 mb-4 border-bottom" style="padding-top: 0.5cm;">
+                <a class="d-flex align-items-center text-dark text-decoration-none">
+                    <span class="fs-4">Parte 1</span>
+                </a>
+            </header>
+            <div class="row g-5">
+                <div class="col-md-5 col-lg-4 order-md-last">
+
+
+                    <h4 class="d-flex justify-content-between align-items-center mb-3">
+                        <span class="text-primary">Paises</span>
+                    </h4>
+
+                    <app-tabla-paises (seSeleccionoPais)="seleccionarPais($event)"> </app-tabla-paises>
+                
+                </div>
+                <div class="col-md-7 col-lg-8">
+                    <h4 class="mb-3">Producto</h4>
+
+                    <form [formGroup]="productoForm">
+                        <div class="row g-3">
+                            <div class="col-sm-6">
+                                <label for="firstName" class="form-label">Código</label>
+                                <input type="number" class="form-control" id="código" placeholder="código"
+                                    formControlName="código">
+                                <small class="text-danger"
+                                    *ngIf="productoForm.get('código')?.errors?.['required'] ">código requerido</small>
+                                <small class="text-danger" *ngIf="productoForm.get('código')?.errors?.['min'] ">código
+                                    tiene que ser mayor a 1</small>
+                                <small class="text-danger" *ngIf="productoForm.get('código')?.errors?.['max'] ">código
+                                    tiene que ser menor a 100.000.000</small>
+
+                            </div>
+                        </div>
+
+                        <div class="col-sm-6">
+                            <label for="lastName" class="form-label">Descripción</label>
+                            <input type="text" class="form-control" id="descripción" placeholder="descripción"
+                                formControlName="descripción">
+                            <small class="text-danger" *ngIf="productoForm.get('descripción')?.errors">descripción
+                                requerido</small>
+                        </div>
+                        <div class="col-md-3">
+                            <label for="address" class="form-label">Precio</label>
+                            <input type="number" class="form-control" id="precio" placeholder="precio"
+                                formControlName="precio">
+                            <small class="text-danger" *ngIf="productoForm.get('precio')?.errors">precio
+                                requerido</small>
+                        </div>
+
+                        <div class="col-md-3">
+                            <label for="address" class="form-label">Stock</label>
+                            <input type="number" class="form-control" id="stock" placeholder="stock"
+                                formControlName="stock">
+                            <small class="text-danger" *ngIf="productoForm.get('stock')?.errors?.['required']">stock
+                                requerido</small>
+                            <small class="text-danger" *ngIf="productoForm.get('stock')?.errors?.['min'] ">stock tiene
+                                que ser mayor a 1</small>
+                        </div>
+
+                        <div class="form-check">
+                            <label for="comestible">Comestible </label>
+                            <input type="checkbox" class="form-check-input" name="comestible" id="comestible"
+                                formControlName="comestible">
+                        </div>
+                        <div class="col-md-6 mb-3">
+                            <label for="paisOrigen">País de origen:</label>
+                            <br>
+                            <input type="text" class="form-control" id="paisOrigen" name="paisOrigen" placeholder="País"
+                                formControlName="paisOrigen" readonly>
+                            <small class="text-danger" *ngIf="productoForm.get('paisOrigen')?.errors">País
+                                requerido</small>
+                        </div>
+                        <hr class="my-4">
+                        <button class="w-100 btn btn-primary btn-lg" type="submit" [disabled]="productoForm.invalid"
+                            (click)="crearProducto()">Crear
+                            repartidor</button>
+
+                    </form>
+                </div>
+            </div>
