@@ -1,0 +1,36 @@
+<div class="h-100 p-5 text-white bg-dark rounded-3">
+    <h2>Detalle</h2>
+    <div *ngIf="productoSeleccionadoRecibido!=null; else elseContent">
+        <table class="table">
+            <thead>
+                <tr style="color:white;">
+                    <th scope="col">codigo</th>
+                    <th scope="col">descripcion</th>
+                    <th scope="col">precio</th>
+                    <th scope="col">stock</th>
+                    <th scope="col">Pais de Origen</th>
+                    <th scope="col">Comestible</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr style="color:white;">
+                    <td>{{productoSeleccionadoRecibido.codigo || ''}}</td>
+                    <td>{{productoSeleccionadoRecibido.descripcion || ''}}</td>
+                    <td>{{productoSeleccionadoRecibido.precio || ''}}</td>
+                    <td>{{productoSeleccionadoRecibido.stock || ''}}</td>
+                    <td>{{productoSeleccionadoRecibido.paisOrigen || ''}}</td>
+                    <td *ngIf="productoSeleccionadoRecibido?.comestible == true; else No">Si</td>
+                    <ng-template #No>
+                        <td>
+                            No
+                        </td>
+                    </ng-template>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <ng-template #elseContent>
+        <p>Aca va el detalle del producto seleccionado.</p>
+    </ng-template>
+    <p style="cursor: pointer;" (click)="ver()">Boton</p>
+</div>

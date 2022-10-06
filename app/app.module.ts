@@ -14,6 +14,15 @@ import { AngularFirestoreModule } from '@angular/fire/compat/firestore';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AltaProductoComponent } from './page/alta-producto/alta-producto.component';
 import { TablaPaisesComponent } from './components/tabla-paises/tabla-paises.component';
+import { DetalleProductoComponent } from './page/detalle-producto/detalle-producto.component';
+import { DetallesProductoComponent } from './components/detalles-producto/detalles-producto.component';
+import { ListadoProductoComponent } from './components/listado-producto/listado-producto.component';
+import { DetallesProductoPaisComponent } from './components/detalles-producto-pais/detalles-producto-pais.component';
+import { ListaProductoComponent } from './page/lista-producto/lista-producto.component';
+import { ContainerComponent } from './page/container/container.component';
+import { ContainerListadoComponent } from './components/container-listado/container-listado.component';
+import { ContainerCrearComponent } from './components/container-crear/container-crear.component';
+import { ContainerModificarComponent } from './components/container-modificar/container-modificar.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +30,16 @@ import { TablaPaisesComponent } from './components/tabla-paises/tabla-paises.com
     BienvenidaComponent,
     LoginComponent,
     AltaProductoComponent,
-    TablaPaisesComponent
+    TablaPaisesComponent,
+    DetalleProductoComponent,
+    DetallesProductoComponent,
+    ListadoProductoComponent,
+    DetallesProductoPaisComponent,
+    ListaProductoComponent,
+    ContainerComponent,
+    ContainerListadoComponent,
+    ContainerCrearComponent,
+    ContainerModificarComponent
   ],
   imports: [
     AngularFireModule.initializeApp(environment.firebaseConfig),

@@ -1,0 +1,55 @@
+<style>
+    .form-label {
+        padding-top: 0.5cm;
+    }
+
+    .button {
+        padding-top: 0.5cm;
+    }
+</style>
+<form [formGroup]="containerFormGroup">
+
+    <div class="col-sm-6">
+        <label for="codigo" class="form-label">codigo</label>
+        <input type="number" class="form-control" id="codigo" placeholder="codigo" formControlName="codigo">
+        <small class="text-danger" *ngIf="containerFormGroup.get('codigo')?.errors?.['required'] ">codigo requerido</small>
+    </div>
+
+    <div>
+        <label for="color" class="form-label">Ingredientes</label>
+        <input type="text" class="form-control" id="ingredientes" placeholder="Ingredientes"
+            formControlName="ingredientes">
+        <small class="text-danger" *ngIf="containerFormGroup.get('ingredientes')?.errors">Ingredientes
+            requeridos</small>
+    </div>
+
+    <div>
+        <label for="color" class="form-label">Empresa</label>
+        <input type="text" class="form-control" id="empresa" placeholder="empresa" formControlName="empresa">
+        <small class="text-danger" *ngIf="containerFormGroup.get('empresa')?.errors">empresa requeridos</small>
+    </div>
+
+
+    <div>
+        <div>
+            <label for="firstName" class="form-label">Capacidad</label>
+            <input type="number" class="form-control" id="capacidad" placeholder="capacidad"
+                formControlName="capacidad">
+            <small class="text-danger" *ngIf="containerFormGroup.get('capacidad')?.errors?.['required'] ">capacidad
+                requerido</small>
+            <small class="text-danger" *ngIf="containerFormGroup.get('capacidad')?.errors?.['min'] ">capacidad tiene que
+                ser mayor a
+                500 grs</small>
+            <small class="text-danger" *ngIf="containerFormGroup.get('capacidad')?.errors?.['max'] ">capacidad tiene que
+                ser menor a
+                1000 grs</small>
+
+        </div>
+    </div>
+
+
+    <hr>
+    <button class="w-100 btn btn-warning btn-lg" type="submit" [disabled]="containerFormGroup.invalid"
+        (click)="crearcontainer()">Crear container</button>
+
+</form>

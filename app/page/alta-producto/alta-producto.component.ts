@@ -36,11 +36,11 @@ export class AltaProductoComponent implements OnInit {
   initForm():FormGroup{
     //declarar las propiedades del form con FormBuilder
     return this.fb.group({
-      código:['', [Validators.required,Validators.min(1), Validators.max(100000000)]],
-      descripción:['', [Validators.required]],
+      codigo:['', [Validators.required,Validators.min(1), Validators.max(100000000)]],
+      descripcion:['', [Validators.required]],
       precio:['', [Validators.required, Validators.min(1)]],
       stock:['', [Validators.required, Validators.min(0)]],
-      comestible:['', [Validators.required]],
+      comestible:['', []],
       paisOrigen:['', [Validators.required]],
     })
   }
@@ -57,8 +57,8 @@ export class AltaProductoComponent implements OnInit {
     if(this.productoForm.valid){
      
       let producto = new Producto(
-        this.productoForm.get('código')?.value, 
-        this.productoForm.get('descripción')?.value,
+        this.productoForm.get('codigo')?.value, 
+        this.productoForm.get('descripcion')?.value,
         this.productoForm.get('precio')?.value,  
         this.productoForm.get('stock')?.value, 
         this.productoForm.get('paisOrigen')?.value,

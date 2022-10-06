@@ -1,19 +1,19 @@
 import { Injectable } from '@angular/core';
 import { AngularFirestore } from '@angular/fire/compat/firestore';
-import { Producto } from '../clases/producto';
+import { Container } from '../clases/container';
 
 @Injectable({
   providedIn: 'root'
 })
-export class ProductoService {
+export class ContainerService {
 
-  ruta = 'productos';
+  ruta = 'containers';
 
   constructor(private firestore: AngularFirestore) {
 
   }
 
-  getProductos() {
+  getContaineres() {
     let collection = this.firestore.collection<any>(this.ruta)
     return collection.valueChanges();
   }
@@ -24,19 +24,17 @@ export class ProductoService {
   }
 
 
-  getProducto(key: string) {
+  getContainer(key: string) {
     return this.firestore.collection(this.ruta).doc(key).valueChanges();
   }
 
-  guardarProducto(producto: Producto) {
-    console.log(producto);
+  guardarContainer(container: Container) {
+    console.log(container);
     return this.firestore.collection(this.ruta).add({
-      codigo: producto.codigo,
-      descripcion: producto.descripcion,
-      precio: producto.precio,
-      stock: producto.stock,
-      paisOrigen: producto.paisOrigen,
-      comestible: producto.comestible
+      codigo: container.codigo,
+      color: container.color,
+      empresa: container.empresa,
+      capacidad: container.capacidad,
     });
   }
 }

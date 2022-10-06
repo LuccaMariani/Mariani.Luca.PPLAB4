@@ -43,24 +43,24 @@
                     <form [formGroup]="productoForm">
                         <div class="row g-3">
                             <div class="col-sm-6">
-                                <label for="firstName" class="form-label">Código</label>
-                                <input type="number" class="form-control" id="código" placeholder="código"
-                                    formControlName="código">
+                                <label for="firstName" class="form-label">codigo</label>
+                                <input type="number" class="form-control" id="codigo" placeholder="codigo"
+                                    formControlName="codigo">
                                 <small class="text-danger"
-                                    *ngIf="productoForm.get('código')?.errors?.['required'] ">código requerido</small>
-                                <small class="text-danger" *ngIf="productoForm.get('código')?.errors?.['min'] ">código
+                                    *ngIf="productoForm.get('codigo')?.errors?.['required'] ">codigo requerido</small>
+                                <small class="text-danger" *ngIf="productoForm.get('codigo')?.errors?.['min'] ">codigo
                                     tiene que ser mayor a 1</small>
-                                <small class="text-danger" *ngIf="productoForm.get('código')?.errors?.['max'] ">código
+                                <small class="text-danger" *ngIf="productoForm.get('codigo')?.errors?.['max'] ">codigo
                                     tiene que ser menor a 100.000.000</small>
 
                             </div>
                         </div>
 
                         <div class="col-sm-6">
-                            <label for="lastName" class="form-label">Descripción</label>
-                            <input type="text" class="form-control" id="descripción" placeholder="descripción"
-                                formControlName="descripción">
-                            <small class="text-danger" *ngIf="productoForm.get('descripción')?.errors">descripción
+                            <label for="lastName" class="form-label">descripcion</label>
+                            <input type="text" class="form-control" id="descripcion" placeholder="descripcion"
+                                formControlName="descripcion">
+                            <small class="text-danger" *ngIf="productoForm.get('descripcion')?.errors">descripcion
                                 requerido</small>
                         </div>
                         <div class="col-md-3">
@@ -97,7 +97,7 @@
                         <hr class="my-4">
                         <button class="w-100 btn btn-primary btn-lg" type="submit" [disabled]="productoForm.invalid"
                             (click)="crearProducto()">Crear
-                            repartidor</button>
+                            producto</button>
 
                     </form>
                 </div>
